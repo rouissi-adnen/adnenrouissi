@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adnen Rouissi — IT Technician & SOC Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Thème Sombre (Par défaut) */
+    --bg: #0a0b0e;
+    --bg2: #111318;
+    --bg3: #181c23;
+    --accent: #00e5c0;
+    --accent2: #0099ff;
+    --accent3: #7c3aed;
+    --text: #f0f2f7;
+    --text2: #8b94a8;
+    --text3: #5a6173;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(0,229,192,0.25);
+    --card: #13161e;
+    --btn-text: #000;
+  }
+
+  body.light-theme {
+    /* Thème Clair */
+    --bg: #f8fafc;
+    --bg2: #f1f5f9;
+    --bg3: #e2e8f0;
+    --text: #0f172a;
+    --text2: #334155;
+    --text3: #64748b;
+    --border: rgba(0,0,0,0.1);
+    --border2: rgba(0,229,192,0.4);
+    --card: #ffffff;
+    --btn-text: #000;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: var(--bg);
+    opacity: 0.98;
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text2);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .theme-toggle {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text);
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .theme-toggle:hover { transform: scale(1.1); }
+
+  .mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,229,192,0.06) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2); /* Changed to Blue to show current position stability */
+    border: 1px solid rgba(0,153,255,0.25);
+    border-radius: 100px;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1.75rem;
+    background: rgba(0,153,255,0.05);
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    /* Removed pulse animation to signify stable employment rather than active seeking */
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--text2);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-desc {
+    color: var(--text2);
+    max-width: 560px;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--btn-text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,229,192,0.3);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border2);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    background: transparent;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover {
+    background: rgba(0,229,192,0.05);
+    border-color: var(--accent);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .stat-number span { color: var(--accent); }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.25rem;
+    font-weight: 600;
+  }
+
+  /* ── SECTIONS ── */
+  section, .section-wrapper {
+    padding: 6rem 5vw;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-bg { background: var(--bg2); max-width: 100%; }
+
+  .section-header { margin-bottom: 3.5rem; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--text);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .skill-card:hover {
+    border-color: rgba(0,229,192,0.2);
+    transform: translateY(-3px);
+  }
+
+  .skill-card:hover::before { opacity: 1; }
+
+  .skill-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: rgba(0,229,192,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .skill-cat {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+    background: rgba(124, 124, 124, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .skill-card:hover .skill-tag {
+    background: rgba(0,229,192,0.07);
+    border-color: rgba(0,229,192,0.2);
+    color: var(--text);
+  }
+
+  /* ── EXPERIENCE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 8px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0,229,192,0.15);
+  }
+
+  .timeline-period {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-company {
+    font-size: 0.95rem;
+    color: var(--text2);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .timeline-company strong {
+    color: var(--accent2);
+    font-weight: 600;
+  }
+
+  .timeline-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .timeline-items li {
+    font-size: 0.95rem;
+    color: var(--text2);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  .timeline-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  /* ── FEATURED PROJECT ── */
+  .project-feature {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 340px;
+  }
+
+  .project-vis {
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-vis-inner {
+    width: 100%;
+    max-width: 280px;
+    font-family: 'DM Sans', monospace;
+    font-size: 0.75rem;
+    color: #4ade80;
+    line-height: 1.6;
+  }
+
+  .terminal-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .t-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  .terminal-line { color: #8b94a8; }
+  .terminal-line .green { color: #4ade80; }
+  .terminal-line .cyan { color: var(--accent); }
+  .terminal-line .yellow { color: #fbbf24; }
+  .terminal-line .red { color: #f87171; }
+  .terminal-line .blue { color: #60a5fa; }
+
+  .project-info {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .project-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.72rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    background: rgba(0,229,192,0.1);
+    color: var(--accent);
+    border: 1px solid var(--border2);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .stack-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 100px;
+    background: rgba(124,58,237,0.12);
+    border: 1px solid rgba(124,58,237,0.25);
+    color: #8b5cf6;
+    font-weight: 500;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: border-color 0.2s;
+  }
+
+  .edu-card:hover { border-color: rgba(0,153,255,0.25); }
+
+  .edu-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-school {
+    font-size: 0.9rem;
+    color: var(--accent2);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-year {
+    font-size: 0.85rem;
+    color: var(--text3);
+    font-weight: 500;
+  }
+
+  /* ── LANGUAGES ── */
+  .lang-grid {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .lang-card {
+    flex: 1;
+    min-width: 180px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .lang-flag {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .lang-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .lang-level {
+    font-size: 0.8rem;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .lang-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+
+  .lang-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  /* ── CONTACT ── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-text .section-title { margin-bottom: 1rem; }
+
+  .contact-desc {
+    color: var(--text2);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text2);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--border2);
+    color: var(--text);
+    background: rgba(0,229,192,0.04);
+  }
+
+  .contact-link-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(0,229,192,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-size: 0.8rem;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+
+  .form-input, .form-textarea {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+    outline: none;
+    resize: vertical;
+  }
+
+  .form-input:focus, .form-textarea:focus { border-color: var(--border2); }
+  .form-textarea { min-height: 120px; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--bg);
+  }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    color: var(--text3);
+    font-weight: 500;
+  }
+
+  .footer-copy span { color: var(--accent); }
+
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-right a {
+    font-size: 0.85rem;
+    color: var(--text3);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .footer-right a:hover { color: var(--accent); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .project-feature { grid-template-columns: 1fr; }
+    .project-vis { display: none; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  @media (max-width: 768px) {
+    section, .section-wrapper { padding: 4rem 5vw; }
+    .hero-stats { gap: 1.5rem; }
+    
+    /* MOBILE NAVIGATION */
+    .mobile-menu-toggle { display: block; }
+    .desktop-btn { display: none; }
+    
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      flex-direction: column;
+      padding: 2rem 5vw;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Hidden state */
+      transition: clip-path 0.3s ease-in-out;
+    }
+    
+    .nav-links.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Visible state */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-name { font-size: 3rem; }
+    .hero-stats { gap: 1rem; flex-direction: column; }
+    .stat-number { font-size: 1.5rem; }
+    section, .section-wrapper { padding: 3.5rem 1.5rem; }
+    .contact-link { font-size: 0.8rem; }
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
+
+  /* ── SELECTION ── */
+  ::selection { background: rgba(0,229,192,0.2); color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">AR<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#experience">Expérience</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#education">Formation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème" title="Changer le thème">☀️</button>
+    <a href="#contact" class="btn-primary desktop-btn" style="padding:0.5rem 1.25rem;font-size:0.82rem;">Me contacter</a>
+    <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Ouvrir le menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="max-width:100%;padding:0 5vw;">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content" style="padding-top:6rem;">
+    <div class="hero-tag">Currently at EXCELLIA SOLUTIONS</div>
+    <h1 class="hero-name">
+      Adnen<br>
+      <span class="line2">Rouissi</span>
+    </h1>
+    <p class="hero-title">Technicien IT &amp; Analyste SOC · Ariana, Tunisie</p>
+    <p class="hero-desc">
+      Spécialiste en monitoring applicatif, cybersécurité et exploitation des systèmes d'information. 
+      Expert en environnements Unix/Linux et Windows Server, avec une forte orientation vers 
+      l'automatisation et la continuité de service.
+    </p>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn-primary">Voir mon parcours →</a>
+      <a href="#contact" class="btn-outline">✉ rouissiadnen7@gmail.com</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">3<span>+</span></div>
+        <div class="stat-label">Années d'expérience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Postes occupés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5<span>+</span></div>
+        <div class="stat-label">Technologies maîtrisées</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24<span>/7</span></div>
+        <div class="stat-label">Support opérationnel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div id="skills" class="section-bg">
+  <div class="section-wrapper">
+    <div class="section-header fade-in">
+      <div class="section-label">Expertise technique</div>
+      <h2 class="section-title">Compétences</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🖥️</div>
+        <div class="skill-cat">Systèmes d'exploitation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Unix / Linux</span>
+          <span class="skill-tag">Windows Server</span>
+          <span class="skill-tag">Navigation avancée</span>
+          <span class="skill-tag">Scripts système</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-cat">Réseaux & Interfaçage</div>
+        <div class="skill-tags">
+          <span class="skill-tag">TCP/IP</span>
+          <span class="skill-tag">FTP / SFTP</span>
+          <span class="skill-tag">API REST</span>
+          <span class="skill-tag">Web Services</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">⚙️</div>
+        <div class="skill-cat">Scripting & Automatisation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Shell</span>
+          <span class="skill-tag">Batch</span>
+          <span class="skill-tag">n8n Workflows</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">📊</div>
+        <div class="skill-cat">Monitoring & SOC</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Microsoft Sentinel</span>
+          <span class="skill-tag">AppDynamics</span>
+          <span class="skill-tag">Elastic</span>
+          <span class="skill-tag">Gateway Monétique</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🛠️</div>
+        <div class="skill-cat">Outils ITIL & Métiers</div>
+        <div class="skill-tags">
+          <span class="skill-tag">GLPI</span>
+          <span class="skill-tag">Automic</span>
+          <span class="skill-tag">Temenos T24</span>
+          <span class="skill-tag">GED</span>
+          <span class="skill-tag">Microsoft Azure</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🔐</div>
+        <div class="skill-cat">Cybersécurité</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Détection CVE</span>
+          <span class="skill-tag">Analyse vulnérabilités</span>
+          <span class="skill-tag">Flux cyberattaques</span>
+          <span class="skill-tag">SOC Analyst</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header fade-in">
+    <div class="section-label">Parcours professionnel</div>
+    <h2 class="section-title">Expérience</h2>
+  </div>
+  <div class="timeline">
+    <!-- Job 1 -->
+    <div class="timeline-item fade-in">
+      <div class="timeline-period">2025 — Présent</div>
+      <div class="timeline-role">Technicien Monitoring & Exploitation Applicative · SOC Analyst</div>
+      <div class="timeline-company"><strong>Banque Zitouna</strong> — Excellia Solutions</div>
+      <ul class="timeline-items">
+        <li>Conception et développement d'une interface web moderne liée à des workflows n8n pour automatiser la détection des vulnérabilités (CVE) et les flux récents de cyberattaques.</li>
+        <li>Assurer l'exploitation, le monitoring, la supervision et le support applicatif des systèmes d'information.</li>
+        <li>Administration et navigation dans les environnements Unix/Linux et Windows Server avec maîtrise des commandes de base.</li>
+        <li>Interfaçage et gestion des réseaux via les protocoles TCP/IP, FTP/SFTP et utilisation d'API / Web Services.</li>
+        <li>Création et exécution de scripts d'automatisation Shell, Batch et Python pour les tâches quotidiennes.</li>
+        <li>Collaboration étroite avec les équipes de jour pour assurer la continuité du service.</li>
+      </ul>
+    </div>
+    <!-- Job 2 -->
+    <div class="timeline-item fade-in">
+      <div class="timeline-period">2023 — 2025</div>
+      <div class="timeline-role">Opérateur CTI & Support IT</div>
+      <div class="timeline-company"><strong>RFC</strong></div>
+      <ul class="timeline-items">
+        <li>Support technique aux utilisateurs — résolution des problèmes logiciels et matériels.</li>
+        <li>Gestion des demandes via ticketing et ouverture d'incidents pour les problèmes détectés.</li>
+        <li>Monitoring et surveillance des applications métiers : AppDynamics, Elastic, Gateway Monétique.</li>
+        <li>Surveillance des serveurs TAFJ et des services T24.</li>
+        <li>Exécution et suivi des workflows Automic et résolution des problèmes COB.</li>
+        <li>Support et résolution des tickets T24 et GED via le système de ticketing.</li>
+        <li>Élaboration et rédaction de procédures techniques.</li>
+      </ul>
+    </div>
+    <!-- Job 3 -->
+    <div class="timeline-item fade-in">
+      <div class="timeline-period">Mars 2023 — Août 2023</div>
+      <div class="timeline-role">Technicien Helpdesk</div>
+      <div class="timeline-company"><strong>UHD</strong> — Carrefour Tunisie</div>
+      <ul class="timeline-items">
+        <li>Support technique aux utilisateurs et résolution des problèmes logiciels et matériels.</li>
+        <li>Gestion des demandes d'assistance via le système de ticketing.</li>
+        <li>Maintenance préventive et corrective des équipements informatiques.</li>
+        <li>Résolution des problèmes de clôture de journée.</li>
+        <li>Collaboration avec les équipes techniques pour la résolution des incidents complexes.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<div id="projects" class="section-bg">
+  <div class="section-wrapper">
+    <div class="section-header fade-in">
+      <div class="section-label">Réalisations</div>
+      <h2 class="section-title">Projet phare</h2>
+    </div>
+    <div class="project-feature fade-in">
+      <div class="project-vis">
+        <div class="project-vis-inner">
+          <div class="terminal-bar">
+            <div class="t-dot" style="background:#ff5f57;"></div>
+            <div class="t-dot" style="background:#febc2e;"></div>
+            <div class="t-dot" style="background:#28c840;"></div>
+          </div>
+          <div class="terminal-line"><span class="cyan">→</span> n8n workflow triggered</div>
+          <div class="terminal-line"><span class="green">✓</span> CVE feed fetched [NVD API]</div>
+          <div class="terminal-line"><span class="yellow">⚡</span> Parsing 247 new entries...</div>
+          <div class="terminal-line"><span class="green">✓</span> Critical: CVE-2025-0311 <span class="red">[9.8]</span></div>
+          <div class="terminal-line"><span class="green">✓</span> High:     CVE-2025-0287 <span class="yellow">[7.4]</span></div>
+          <div class="terminal-line"><span class="blue">→</span> Sending alert to SOC team...</div>
+          <div class="terminal-line"><span class="green">✓</span> Sentinel alert created</div>
+          <div class="terminal-line"><span class="cyan">→</span> Dashboard updated 00:03.2s</div>
+          <br>
+          <div class="terminal-line" style="color:#3a4455;">─────────────────────────</div>
+          <div class="terminal-line"><span style="color:#3a4455;">Next run: </span><span class="cyan">in 15 minutes</span></div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-badge">Projet actuel · 2025/2026</div>
+        <h3 class="project-title">Plateforme de détection automatisée des vulnérabilités</h3>
+        <p class="project-desc">
+          Interface web moderne connectée à des workflows n8n pour l'automatisation en temps réel 
+          de la détection des CVE et des flux de cyberattaques. Intégration avec Microsoft Sentinel 
+          pour la création automatique d'alertes SOC et le reporting continu.
+        </p>
+        <div class="project-stack">
+          <span class="stack-tag">n8n</span>
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Microsoft Sentinel</span>
+          <span class="stack-tag">CVE / NVD API</span>
+          <span class="stack-tag">Web Interface</span>
+          <span class="stack-tag">Automatisation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header fade-in">
+    <div class="section-label">Parcours académique</div>
+    <h2 class="section-title">Formation</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card fade-in">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-degree">Licence fondamentale en sciences informatiques</div>
+      <div class="edu-school">I.S.I KEF</div>
+      <div class="edu-year">2018 — 2021</div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-icon">📐</div>
+      <div class="edu-degree">Baccalauréat Mathématiques</div>
+      <div class="edu-school">Lycée El Hayet</div>
+      <div class="edu-year">2017</div>
+    </div>
+  </div>
+
+  <div style="margin-top:3.5rem;" class="fade-in">
+    <div class="section-label" style="margin-bottom:1.5rem;">Langues</div>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <div class="lang-flag">🇹🇳</div>
+        <div class="lang-name">Arabe</div>
+        <div class="lang-level">Langue maternelle</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%;"></div></div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag">🇫🇷</div>
+        <div class="lang-name">Français</div>
+        <div class="lang-level">Intermédiaire</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:65%;"></div></div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-flag">🇬🇧</div>
+        <div class="lang-name">Anglais</div>
+        <div class="lang-level">Intermédiaire</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:60%;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact" class="section-bg">
+  <div class="section-wrapper contact-inner">
+    <div class="contact-text fade-in">
+      <div class="section-label">Prise de contact</div>
+      <h2 class="section-title">Travaillons ensemble</h2>
+      <p class="contact-desc">
+        Disponible pour des missions, des opportunités d'emploi ou simplement pour 
+        discuter de cybersécurité, d'automatisation ou d'infrastructure IT.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:rouissiadnen7@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          rouissiadnen7@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/rouissi-adnen-9587b7308" target="_blank" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          LinkedIn
+        </a>
+        <a href="tel:+21628120953" class="contact-link">
+          <span class="contact-link-icon">📞</span>
+          +216 28 120 953
+        </a>
+        <div class="contact-link" style="cursor:default;">
+          <span class="contact-link-icon">📍</span>
+          Ariana, Tunisie
+        </div>
+      </div>
+    </div>
+    
+    <div class="contact-form fade-in" id="contactForm">
+      <div class="form-group">
+        <label class="form-label" for="senderName">Nom</label>
+        <input type="text" id="senderName" class="form-input" placeholder="Votre nom complet" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="senderEmail">Email</label>
+        <input type="email" id="senderEmail" class="form-input" placeholder="votre@email.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="senderMessage">Message</label>
+        <textarea id="senderMessage" class="form-textarea" placeholder="Décrivez votre projet ou opportunité..." required></textarea>
+      </div>
+      <button type="button" class="btn-primary" style="align-self:flex-start;" onclick="sendEmail()">
+        Envoyer le message →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">copyright <span>@adnenrouissi</span> 2026</div>
+  <div class="footer-right">
+    <a href="https://www.linkedin.com/in/rouissi-adnen-9587b7308" target="_blank">LinkedIn</a>
+    <a href="#hero">Haut de page ↑</a>
+    <a href="mailto:rouissiadnen7@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // ── ANIMATIONS AU SCROLL ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── NAVIGATION FLUIDE ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── MENU MOBILE ──
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  mobileMenuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    if (navLinks.classList.contains('active')) {
+      mobileMenuToggle.textContent = '✕';
+    } else {
+      mobileMenuToggle.textContent = '☰';
+    }
+  });
+
+  // Fermer le menu lors d'un clic sur un lien (sur mobile)
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      mobileMenuToggle.textContent = '☰';
+    });
+  });
+
+  // ── THEME CLAIR / SOMBRE ──
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  
+  if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light-theme');
+    themeToggle.textContent = '🌙';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    if (body.classList.contains('light-theme')) {
+      localStorage.setItem('theme', 'light');
+      themeToggle.textContent = '🌙';
+    } else {
+      localStorage.setItem('theme', 'dark');
+      themeToggle.textContent = '☀️';
+    }
+  });
+
+  // ── ENVOI D'EMAIL VIA MAILTO ──
+  function sendEmail() {
+    const name = document.getElementById('senderName').value;
+    const email = document.getElementById('senderEmail').value;
+    const message = document.getElementById('senderMessage').value;
+
+    if (!name || !message) {
+      alert('Veuillez au moins renseigner votre nom et votre message.');
+      return;
+    }
+
+    const subject = encodeURIComponent(`Nouveau message depuis le portfolio de : ${name}`);
+    const bodyText = encodeURIComponent(`${message}\n\n---\nEnvoyé par : ${name}\nAdresse de contact : ${email}`);
+    
+    window.location.href = `mailto:rouissiadnen7@gmail.com?subject=${subject}&body=${bodyText}`;
+  }
+</script>
+</body>
+</html>
